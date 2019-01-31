@@ -1,0 +1,39 @@
+
+#main-question {
+  margin-top: 60px;
+  width: 50%;
+  margin: auto;
+
+}
+#show-question{
+  border: 1px solid grey;
+  border-radius: 30px;
+  box-shadow: 10px 5px 5px grey;
+  padding: 50px;
+  margin-bottom: 100px;
+
+}
+.main-q {
+  margin-top:60px;
+
+}
+.sexy_line{
+  margin-top:20px;
+    display:block;
+    border:none;
+    color:white;
+    height:1px;
+    background:black;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#000), to(#fff));
+}
+.user {
+  opacity: 0.5;
+}
+
+.user-question{
+  opacity: 0.8;
+  padding-top:10px;
+}
+.low-opc {
+  opacity: 0.5;
+}

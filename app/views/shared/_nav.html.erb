@@ -1,0 +1,16 @@
+<div class="ui secondary menu">
+  <%= link_to "Home", root_path, class: "item #{active?(root_path)}" %>
+  <%= link_to "Questions", questions_path, class: "item #{active?(questions_path)}" %>
+  <%= link_to "Edit Account",   edit_user_registration_path, class: "item #{active?(edit_user_registration_path)}" %>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+
+
+      <%= link_to "Logout",   destroy_user_session_path, method: :delete, class: "item ui" %>
+  </div>
+</div>

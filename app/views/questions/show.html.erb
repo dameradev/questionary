@@ -1,0 +1,58 @@
+<div id="main-question">
+  <div class="ui items" id="show-question" >
+    <div class="item" >
+
+      <div class="content">
+        <h1 class="header"><%= @question.title %></h1>
+        <div class="description">
+          <p><%= @question.content %></p>
+        </div>
+        <div class="extra">
+          <i><h5 class="user-question"><%= "asked by: " + @question.user.username.to_s   %></h5></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% @answers.each do |answer| %>
+  <div class="ui items">
+    <div class="item">
+      <div class="content">
+        <p class="header"><span class="low-opc">Answered by:</span> <%= answer.user.username %></p>
+        <div class="description">
+          <p><%= answer.content %></p>
+        </div>
+        <div class="extra">
+          <i class="green check icon"></i>
+
+          <%= link_to  upvote_answer_path(answer), method: :put do %>
+            Upvotes:
+
+          <% end %>
+          <span class="likes-count" id="answer-<%= answer.id %>">
+            <%= answer.get_upvotes.size %>
+          </span>
+          <%= link_to "Like", downvote_answer_path(answer), method: :put, remote: :true, class: "button primary" %>
+
+        </div>
+        <span class="sexy_line"></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if current_user.present? %>
+    <%= form_for @answer do |f| %>
+    <div class="ui form">
+        <div class="field">
+          <%= f.label :content, "Leave an answer:" %>
+          <%= f.text_area :content %>
+        </div>
+        <%= f.hidden_field :question_id, value: @question.id %>
+
+        <%= f.submit nil, :class => 'button primary' %>
+
+    </div>
+    <% end %>
+  <% end %>
+</div>
