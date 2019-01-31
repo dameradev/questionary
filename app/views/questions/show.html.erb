@@ -23,17 +23,18 @@
           <p><%= answer.content %></p>
         </div>
         <div class="extra">
-          <i class="green check icon"></i>
 
-          <%= link_to  upvote_answer_path(answer), method: :put do %>
-            Upvotes:
-
+          <%= link_to upvote_answer_path(answer), method: :put, remote: :true do  %>
+            <i class="arrow up icon"></i>
           <% end %>
-          <span class="likes-count" id="answer-<%= answer.id %>">
-            <%= answer.get_upvotes.size %>
-          </span>
-          <%= link_to "Like", downvote_answer_path(answer), method: :put, remote: :true, class: "button primary" %>
 
+            <span class="answer-<%= answer.id %>">
+              <%= answer.get_upvotes.size %>
+            </span>
+
+          <%= link_to downvote_answer_path(answer), method: :put, remote: :true do %>
+            <i class="arrow down icon"></i>
+          <% end %>
         </div>
         <span class="sexy_line"></span>
       </div>

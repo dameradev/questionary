@@ -64,12 +64,19 @@ class AnswersController < ApplicationController
   #CUSTOM METHODS
   def upvote
     @answer.upvote_from current_user
-    
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
   end
 
   def downvote
     @answer.downvote_from current_user
-    head :no_content
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
   end
 
   private

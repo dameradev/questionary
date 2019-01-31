@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
-    @answers = Answer.where(question_id: @question.id)
+    @answers = Answer.where(question_id: @question.id).order(cached_votes_up: :desc)
 
   end
 
